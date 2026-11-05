@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: devops-crud-app
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/rkvperpetual/devops-crud-app-gitops.git
+    targetRevision: main
+    path: helm/devops-task-manager
+
+    helm:
+      releaseName: task-manager
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devops-app
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
