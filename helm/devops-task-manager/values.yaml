@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: 027195719990.dkr.ecr.ap-south-1.amazonaws.com/devops-task-manager
-  tag: "7-2b4d0c4"
+  tag: "8-6aa6057"
   pullPolicy: IfNotPresent
 
 service:
